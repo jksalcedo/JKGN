@@ -21,14 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-// app.get('/', redirectIfAuthenticated, (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// });
-
-// // Routes
-// app.get('/', (req, res) => {
-//     res.render('index'); // Render the landing page
-// });
+app.get('/', redirectIfAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.get('/home', requireAuth, (req, res) => {
     res.render('pages/home');
