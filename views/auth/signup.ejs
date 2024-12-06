@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - JKGN Resume Builder</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>JKGN Resume Builder</h1>
+    </div>
+    <div class="container">
+      <h2>Sign Up</h2>
+      <form id="signup-form" action="/register" method="POST">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Signup</button>
+    </form>
+      <p>Already have an account? <a href="/auth/login">Login here</a></p>
+    </div>
+    <!-- <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        GoogleAuthProvider,
+        FacebookAuthProvider,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCIpnqe8ButjkaYwYVvNNIWdrp6DoG7g-g",
+        authDomain: "resume-builder-2024-2025.firebaseapp.com",
+        databaseURL:
+          "https://resume-builder-2024-2025-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "resume-builder-2024-2025",
+        storageBucket: "resume-builder-2024-2025.firebasestorage.app",
+        messagingSenderId: "909281259225",
+        appId: "1:909281259225:web:359651e042a30cd3de18c8",
+        measurementId: "G-PM07P6HXLK",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const googleProvider = new GoogleAuthProvider();
+      const facebookProvider = new FacebookAuthProvider();
+
+      // Login Form Handler
+      const loginForm = document.getElementById("login-form");
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            const userCredential = await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+            window.location.href = "/home"; // Redirect to home page
+          } catch (error) {
+            console.error("Login Error:", error);
+            alert(getFirebaseErrorMessage(error));
+          }
+        });
+      }
+
+      // Signup Form Handler
+      const signupForm = document.getElementById("signup-form");
+      if (signupForm) {
+        signupForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            const userCredential = await createUserWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+            window.location.href = "/home"; // Redirect to home page
+          } catch (error) {
+            console.error("Signup Error:", error);
+            alert(getFirebaseErrorMessage(error));
+          }
+        });
+      }
+
+      // Google Login Handler
+      const googleBtn = document.getElementById("google-btn");
+      if (googleBtn) {
+        googleBtn.addEventListener("click", async () => {
+          try {
+            const result = await signInWithPopup(auth, googleProvider);
+            window.location.href = "/home";
+          } catch (error) {
+            console.error("Google Login Error:", error);
+            alert(getFirebaseErrorMessage(error));
+          }
+        });
+      }
+
+      // Facebook Login Handler
+      const facebookBtn = document.getElementById("facebook-btn");
+      if (facebookBtn) {
+        facebookBtn.addEventListener("click", async () => {
+          try {
+            const result = await signInWithPopup(auth, facebookProvider);
+            window.location.href = "/home";
+          } catch (error) {
+            console.error("Facebook Login Error:", error);
+            alert(getFirebaseErrorMessage(error));
+          }
+        });
+      }
+
+      // Helper function to translate Firebase error codes
+      function getFirebaseErrorMessage(error) {
+        switch (error.code) {
+          case "auth/wrong-password":
+            return "Incorrect password. Please try again.";
+          case "auth/user-not-found":
+            return "No user found with this email address.";
+          case "auth/email-already-in-use":
+            return "This email is already registered. Please use a different email or log in.";
+          case "auth/weak-password":
+            return "Password is too weak. Please use a stronger password.";
+          case "auth/invalid-email":
+            return "Invalid email address format.";
+          case "auth/operation-not-allowed":
+            return "Login method not allowed. Please contact support.";
+          default:
+            return `Authentication error: ${error.message}`;
+        }
+      }
+    </script> -->
+  </body>
+</html>

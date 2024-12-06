@@ -1,0 +1,24 @@
+<div class="grid">
+    <div class="template" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+        <h3>Template 1</h3>
+        <button onclick="editTemplate('template1.ejs')">Preview/Edit</button>
+    </div>
+    <div class="template" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+        <h3>Template 2</h3>
+        <button onclick="editTemplate('template2.ejs')">Preview/Edit</button>
+    </div>
+    <!-- Add more templates as needed -->
+</div>
+<script>
+function showPreview(element) {
+    // Logic to show preview
+}
+
+function hidePreview(element) {
+    // Logic to hide preview
+}
+
+function editTemplate(template) {
+    window.location.href = `/templates/${template}`;
+}
+</script>
