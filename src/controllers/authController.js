@@ -1,61 +1,69 @@
-import { auth, googleProvider, facebookProvider } from '../config/firebase.js';
-import { signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import {
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signInWithPopup
+} from 'firebase/auth';
+import { auth, googleProvider, facebookProvider, admin } from '../config/firebase.js';
+import { generateToken } from '../middleware/authMiddleware.js';
 
-export const loginWithEmail = async (req, res) => {
-    const { email, password } = req.body;
+export const registerUser = async (req, res) => {
     try {
-        await signInWithEmailAndPassword(auth, email, password);
-        res.redirect('/home'); // Redirect to homepage on success
-        console.log('User  signed in successfully');
+        const { email, password } = req.body;
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const token = generateToken(userCredential.user);
+
+        res.status(201).json({
+            token,
+            user: {
+                uid: userCredential.user.uid,
+                email: userCredential.user.email
+            }
+        });
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
 };
 
-export const registerWithEmail = async (req, res) => {
-    const { email, password } = req.body;
+export const loginUser = async (req, res) => {
     try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        res.redirect('/home'); // Redirect to homepage on success
-        console.log('User  signed in successfully');
+        const { email, password } = req.body;
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const token = generateToken(userCredential.user);
+
+        res.json({
+            token,
+            user: {
+                uid: userCredential.user.uid,
+                email: userCredential.user.email
+            }
+        });
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
 };
 
-export const loginWithGoogle = async (req, res) => {
+export const googleLogin = async (req, res) => {
     try {
-        await signInWithPopup(auth, googleProvider);
-        res.redirect('/home'); // Redirect to homepage on success
-        console.log('User  signed in successfully');
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
-};
+        const userCredential = await signInWithPopup(auth, googleProvider);
+        const token = generateToken(userCredential.user);
 
-export const loginWithFacebook = async (req, res) => {
-    try {
-        await signInWithPopup(auth, facebookProvider);
-        res.redirect('/home'); // Redirect to homepage on success
-        console.log('User  signed in successfully');
+        res.json({
+            token,
+            user: {
+                uid: userCredential.user.uid,
+                email: userCredential.user.email
+            }
+        });
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
 };
 
 export const logout = async (req, res) => {
     try {
-      await signOut(auth);
-      res.redirect('/');
+        await admin.auth().revokeRefreshTokens(req.user.uid);
+        res.json({ message: 'Logged out successfully' });
     } catch (error) {
-      res.status(500).send('Logout failed');
+        res.status(500).json({ error: 'Logout failed' });
     }
-  };
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log('User  is signed in:', user);
-    } else {
-        console.log('No user is signed in.');
-    }
-});
+};

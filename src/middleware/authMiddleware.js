@@ -1,34 +1,31 @@
-import { auth } from "../config/firebase.js";
-import { onAuthStateChanged } from "firebase/auth";
+import jwt from 'jsonwebtoken';
+import { admin } from '../config/firebase.js';
 
-export const requireAuth = async (req, res, next) => {
-  onAuthStateChanged(auth, (user) => {
-    console.log("Current User in requireAuth:", user);
-    if (user) {
-      next(); // User is authenticated, proceed to the next middleware
-    } else {
-      res.redirect("/"); // User is not authenticated, redirect to home
-    }
-  });
+export const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ error: 'Authentication token required' });
+  }
+
+  try {
+    // Verify Firebase ID token
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    req.user = decodedToken;
+    next();
+  } catch (error) {
+    return res.status(403).json({ error: 'Invalid or expired token' });
+  }
 };
 
-export const redirectIfAuthenticated = async (req, res, next) => {
-  try {
-    const user = auth.currentUser;
-    if (user) {
-      res.redirect("/home");
-    } else {
-      next();
-    }
-  } catch (error) {
-    next();
-  }
-  onAuthStateChanged(auth, (user) => {
-    console.log("Current User in redirectIfAuthenticated:", user);
-    if (user) {
-      next();
-    } else {
-      res.redirect("/"); // User is not authenticated, redirect to home
-    }
-  });
+export const generateToken = (user) => {
+  return jwt.sign(
+    {
+      uid: user.uid,
+      email: user.email
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.JWT_EXPIRATION }
+  );
 };

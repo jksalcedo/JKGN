@@ -1,29 +1,122 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - JKGN Resume Builder</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Knewave&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/combined-styles.css">
   </head>
   <body>
     <div class="navbar">
       <h1>JKGN Resume Builder</h1>
     </div>
-    <div class="container">
-      <h2>Sign Up</h2>
-      <form id="signup-form" action="/signup" method="POST">
-        <div>
+    <div class="main-content">
+      <div class="side-content">
+        <h1>JKGN</h1>
+        <p>Welcome to JKGN Resume Builder. Create professional resumes effortlessly and land your dream job. Join us today and take the first step towards a brighter future.</p>
+      </div>
+      <div class="container">
+        <h1>Sign Up</h1>
+        <form id="login-form" action="/signup" method="POST">
+          <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required />
-        </div>
-        <div>
+          </div>
+          <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required />
+          </div>
+          <div id="error-message" style="color: red; display: none;"></div> <!-- Error message area -->
+      
+          <button type="submit">Sign Up</button>
+        </form>
+        <div>
+          <button id="google-btn"><i class="fab fa-google"></i> Google</button>
+          <button id="facebook-btn"><i class="fab fa-facebook-f"></i> Facebook</button>
         </div>
-        <button type="submit">Signup</button>
-    </form>
-      <p>Already have an account? <a href="/auth/login">Login here</a></p>
+        <p>Don't have an account? <a href="/auth/login">Login</a></p>
+      </div>
     </div>
+    <script>
+      document.getElementById('login-form').addEventListener('submit', async function(event) {
+          event.preventDefault(); // Prevent the default form submission
+  
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const errorMessageDiv = document.getElementById('error-message');
+  
+          // Clear previous error messages
+          errorMessageDiv.style.display = 'none';
+          errorMessageDiv.textContent = '';
+  
+          try {
+              const response = await fetch('/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ email, password }),
+              });
+  
+              if (!response.ok) {
+                  const errorText = await response.text();
+                  errorMessageDiv.textContent = errorText; // Set the error message
+                  errorMessageDiv.style.display = 'block'; // Show the error message
+              } else {
+                  window.location.href = '/home'; // Redirect on success
+              }
+          } catch (error) {
+              errorMessageDiv.textContent = 'An unexpected error occurred. Please try again.'; // Handle unexpected errors
+              errorMessageDiv.style.display = 'block'; // Show the error message
+          }
+      });
+  
+      // Google Login
+      document.getElementById('google-btn').addEventListener('click', async function() {
+          const errorMessageDiv = document.getElementById('error-message');
+          errorMessageDiv.style.display = 'none'; // Clear previous error messages
+  
+          try {
+              const response = await fetch('/auth/google', {
+                  method: 'GET', // Assuming you have a route to handle Google login
+              });
+  
+              if (!response.ok) {
+                  const errorText = await response.text();
+                  errorMessageDiv.textContent = errorText; // Set the error message
+                  errorMessageDiv.style.display = 'block'; // Show the error message
+              } else {
+                  window.location.href = '/home'; // Redirect on success
+              }
+          } catch (error) {
+              errorMessageDiv.textContent = 'An unexpected error occurred during Google login. Please try again.'; // Handle unexpected errors
+              errorMessageDiv.style.display = 'block'; // Show the error message
+          }
+      });
+  
+      // Facebook Login
+      document.getElementById('facebook-btn').addEventListener('click', async function() {
+          const errorMessageDiv = document.getElementById('error-message');
+          errorMessageDiv.style.display = 'none'; // Clear previous error messages
+  
+          try {
+              const response = await fetch('/auth/facebook', {
+                  method: 'GET', // Assuming you have a route to handle Facebook login
+              });
+  
+              if (!response.ok) {
+                  const errorText = await response.text();
+                  errorMessageDiv.textContent = errorText; // Set the error message
+                  errorMessageDiv.style.display = 'block'; // Show the error message
+              } else {
+                  window.location.href = '/home'; // Redirect on success
+              }
+          } catch (error) {
+              errorMessageDiv.textContent = 'An unexpected error occurred during Facebook login. Please try again.'; // Handle unexpected errors
+              errorMessageDiv.style.display = 'block'; // Show the error message
+          }
+      });
+  </script>
   </body>
 </html>

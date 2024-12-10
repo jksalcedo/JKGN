@@ -1,101 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage - JKGN Resume Builder</title>
-    <style>
-        body {
-            font-family: "Roboto", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .navbar {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar h1 {
-            margin: 0;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .navbar a:hover {
-            background-color: #555;
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .content h2 {
-            margin-top: 0;
-        }
-
-        .logout-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .logout-button:hover {
-            background-color: #c82333;
-        }
-    </style>
-</head>
-<body>
-    <div class="navbar">
+<link rel="stylesheet" href="/css/combined-styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
         <h1>JKGN Resume Builder</h1>
         <button class="logout-button" id="logoutButton">Logout</button>
-    </div>
+      </div>
+    </header>
+
     <div class="content">
-        <h2>Your Dashboard</h2>
-        <p>This is a placeholder for your dashboard content.</p>
+      <h2>Your Dashboard</h2>
+      <p>This is a placeholder for your dashboard content.</p>
     </div>
 
     <script>
-        document.getElementById('logoutButton').addEventListener('click', function() {
-            fetch('/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+      document
+        .getElementById("logoutButton")
+        .addEventListener("click", function () {
+          fetch("/logout", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                window.location.href = "/"; // Redirect to homepage after logout
+              } else {
+                alert("Logout failed. Please try again.");
+              }
             })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = '/'; // Redirect to homepage after logout
-                } else {
-                    alert('Logout failed. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred. Please try again.");
             });
         });
     </script>
-</body>
+  </body>
 </html>
