@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import helmet from "helmet";
 import { fileURLToPath } from "url";
-import authRoutes from "./src/routes/authRoutes.js";
+import authRoutes from "./src/routes/authRoutes.mjs";
 import dotenv from "dotenv";
 
 dotenv.config();
