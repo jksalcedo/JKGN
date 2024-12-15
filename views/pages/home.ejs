@@ -1,46 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage - JKGN Resume Builder</title>
-<link rel="stylesheet" href="/css/combined-styles.css">
-  </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <h1>JKGN Resume Builder</h1>
-        <button class="logout-button" id="logoutButton">Logout</button>
-      </div>
-    </header>
 
-    <div class="content">
-      <h2>Your Dashboard</h2>
-      <p>This is a placeholder for your dashboard content.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage - JKGN Resume Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Knewave:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/home.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-title header-item">
+        <a href="/">
+          <h1>JKGN</h1>
+        </a>
+        <p>Resume Builder</p>
+      </div>
+      <nav class="header-item">
+        <a href="#"> Templates </a>
+        <a href="/#about_us"> About Us </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="welcome-section">
+      <h2>Create Your Professional Resume</h2>
+      <p>Select a template below to get started - no sign up required</p>
     </div>
 
-    <script>
-      document
-        .getElementById("logoutButton")
-        .addEventListener("click", function () {
-          fetch("/logout", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => {
-              if (response.ok) {
-                window.location.href = "/"; // Redirect to homepage after logout
-              } else {
-                alert("Logout failed. Please try again.");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("An error occurred. Please try again.");
-            });
-        });
-    </script>
-  </body>
+    <!-- Templates Section -->
+    <h3>Available Templates</h3>
+    <div class="templates">
+      <div class="template-grid">
+        <div class="template-item" data-template-id="1">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="2">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="3">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="4">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="5">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="6">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="7">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="template-grid">
+        <div class="template-item" data-template-id="8">
+          <img alt="Template 1" src="images/1.jpg" />
+          <div class="overlay">
+            <button>
+              Edit Template
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/footer.ejs') %>
+</body>
+
 </html>

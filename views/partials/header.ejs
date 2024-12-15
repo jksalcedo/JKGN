@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="header-container">
+        <div class="nav-title header-item">
+            <p>JKGN</p>
+            Resume Builder
+        </div>
+        <nav class="header-item">
+            <a href="#templates"> Templates </a>
+            <a href="#about_us"> About Us</a>
+
+        </nav>
+        <div class="buttons header-item">
+            <a class="get-started" href="/home"> Get Started </a>
+        </div>
+    </div>
+</header>
+
+<nav class="breadcrumb">
+    <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <% if (typeof breadcrumbs !=='undefined' ) { %>
+            <% breadcrumbs.forEach(function(crumb) { %>
+                <li class="breadcrumb-item <%= crumb.active ? 'active' : '' %>">
+                    <% if (!crumb.active) { %>
+                        <a href="<%= crumb.url %>">
+                            <%= crumb.text %>
+                        </a>
+                        <% } else { %>
+                            <%= crumb.text %>
+                                <% } %>
+                </li>
+                <% }); %>
+                    <% } %>
+    </ul>
+</nav>

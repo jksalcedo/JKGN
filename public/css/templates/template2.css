@@ -1,0 +1,237 @@
+.resume-container {
+    width: 8.3in;
+    height: 11.7in;
+    margin: 0 auto;
+    padding: 0.4in;
+    background: white;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    color: #333;
+}
+
+.header-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.header-content h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0.5rem 0 1rem;
+    color: #666;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    width: 16px;
+    color: #333;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
+}
+
+.main-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.left-column {
+    flex: 1;
+}
+
+.right-column {
+    flex: 2;
+}
+
+section {
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #333;
+}
+
+.education-item {
+    margin-bottom: 1rem;
+}
+
+.education-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.education-item .school {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    color: #666;
+}
+
+.education-item .year {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+}
+
+.expertise ul,
+.language ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expertise li,
+.language li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.profile p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+.experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.job-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.job-header .year {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.position {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.2rem 0;
+}
+
+.experience-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.experience-item li {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.experience-item li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+.references-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.reference-item {
+    flex: 1;
+}
+
+.reference-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.reference-item .position {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.2rem 0 0.5rem;
+}
+
+.ref-contact p {
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+    color: #666;
+}
+
+.ref-contact span:first-child {
+    font-weight: 500;
+    color: #333;
+    margin-right: 0.3rem;
+}
+
+@media print {
+    .resume-container {
+        margin: 0;
+        padding: 0.8in;
+        box-shadow: none;
+    }
+}

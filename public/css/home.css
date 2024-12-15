@@ -1,0 +1,186 @@
+body {
+    font-family: "Rubik", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+    color: #f2f2f2;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, #131313, rgba(255, 255, 255, 0));
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: large;
+}
+
+.nav-title h1 {
+    font-family: "Knewave", cursive;
+    font-size: 2rem;
+    margin: 0;
+    color: #0c6bc0;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.nav-title p {
+    margin: 0;
+}
+
+header nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #4b8bbe;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.welcome-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-section p {
+    color: #868686;
+    font-size: 1.1rem;
+}
+
+.templates {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.template-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.template-item:hover {
+    transform: scale(1.02);
+}
+
+.template-item img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    aspect-ratio: 8.3/11.7;
+    border-radius: 8px;
+}
+
+.template-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.template-item:hover .overlay {
+    opacity: 1;
+}
+
+.template-item .overlay button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.template-item .overlay button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    max-width: 70%;
+    height: 100%;
+    margin: 2rem auto 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-container {
+    background: linear-gradient(to top, #0d1d31, rgba(255, 255, 255, 0));
+    padding: 1rem 0;
+    font-size: .8rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5rem;
+
+    & a {
+        color: #c1c1c1;
+
+        &:hover {
+            color: #4b8bbe;
+        }
+    }
+}
+
+
+
+.about-us {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-member {
+    flex-basis: 25%;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-project ul {
+    list-style-type: disc;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}

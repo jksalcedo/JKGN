@@ -1,0 +1,289 @@
+body {
+    background-color: #1e1e1e;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-container {
+    flex: 1;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.template-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    z-index: 1000;
+    padding: 0.4rem 1.5rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: large;
+    color: #f2f2f2;
+    font-family: "Rubik", sans-serif;
+}
+
+.nav-title p {
+    font-family: "Knewave", cursive;
+    font-size: 2rem;
+    margin: 0;
+    color: #0c6bc0;
+}
+
+.editor-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toolbar-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid #333;
+    color: #f2f2f2;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.toolbar-btn:hover {
+    background-color: #333;
+}
+
+.toolbar-btn.primary {
+    background-color: #0c6bc0;
+    border-color: #0d5ea4;
+}
+
+.toolbar-btn.primary:hover {
+    background-color: #107ad6;
+}
+
+.toolbar-btn i {
+    font-size: 16px;
+}
+
+.toolbar-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #333;
+    margin: 0 0.5rem;
+}
+
+/* For edit mode */
+.edit-mode [data-editable] {
+    outline: 1px dashed #444;
+    min-height: 1em;
+}
+
+.edit-mode [data-editable]:hover {
+    outline: 2px dashed #666;
+}
+
+.edit-mode [data-editable]:focus {
+    outline: 2px solid #C4977C;
+    outline-offset: 2px;
+}
+
+/* Color picker styles */
+.color-picker {
+    position: fixed;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1001;
+}
+
+.color-picker.active {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    width: max-content;
+}
+
+.color-option {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    border-color: #ffffff;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Group separators */
+.color-picker::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: #333;
+    left: 20%;
+    /* After warm colors */
+}
+
+.color-picker::after {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: #333;
+    right: 20%;
+    /* Before modern colors */
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .header,
+    .editor-tools,
+    .color-picker {
+        display: none !important;
+    }
+
+    .editor-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important;
+    }
+
+    .template-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important;
+    }
+
+    .resume-container {
+        margin: 0 !important;
+        padding: 0.4in !important;
+        box-shadow: none !important;
+        height: 11.7in !important;
+        width: 8.3in !important;
+        overflow: hidden !important;
+    }
+}
+
+.template-menu {
+    position: fixed;
+    background: #090303;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    z-index: 1000;
+    display: none;
+    width: 240px;
+}
+
+.template-menu.active {
+    display: block;
+}
+
+.template-option {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    color: #f2f2f2;
+}
+
+.template-option:hover {
+    background-color: #333;
+    transform: translateX(4px);
+}
+
+.template-option i {
+    color: #0c6bc0;
+    width: 20px;
+}
+
+.template-option span {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.template-option small {
+    color: #888;
+    margin-left: auto;
+    font-size: 0.8rem;
+}
+
+#templateBtn {
+    position: relative;
+}
+
+#templateBtn i {
+    font-size: 1.1rem;
+}

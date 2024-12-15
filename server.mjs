@@ -1,8 +1,6 @@
 import express from "express";
 import path from "path";
-import helmet from "helmet";
 import { fileURLToPath } from "url";
-import authRoutes from "./src/routes/authRoutes.mjs";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -18,7 +16,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
-app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
@@ -26,12 +23,27 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// Home route
 app.get("/home", (req, res) => {
   res.render("pages/home");
 });
 
-// Authentication routes
-app.use("/", authRoutes);
+// Editor route
+app.get('/editor/:id', (req, res) => {
+  const templateId = req.params.id;
+  console.log('templateId:', templateId);
+  // Validate template ID (1-8)
+  if (templateId < 1 || templateId > 8) {
+    return res.redirect('/');
+  }
+
+  res.render('pages/editor', {
+    templateId: templateId,
+    template: `templates/template${templateId}`,
+    templateStyles: `templates/template${templateId}.css`
+  });
+});
+
 
 // Start server
 app.listen(PORT, () => {

@@ -1,0 +1,337 @@
+.resume-container {
+    width: 8.3in;
+    height: 11.7in;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-image: url('/images/bg8.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.waves-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+/* Header Section */
+.header-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+.name-section {
+    margin-top: 4rem;
+}
+
+
+.first-name,
+.last-name {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.profile-image {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.25rem solid #ffffff;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title-badge {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    background-color: #000000;
+    border: 0.125rem solid #ffffff;
+    border-radius: 2rem;
+    margin: 0rem 0 2rem;
+    z-index: 1;
+}
+
+.title-badge span {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.about-section {
+    position: relative;
+    max-width: 70%;
+    margin-bottom: 3rem;
+    z-index: 1;
+}
+
+.about-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.main-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "experience education"
+        "skills contact";
+    gap: 3rem 4rem;
+    z-index: 1;
+}
+
+.experience-section {
+    grid-area: experience;
+}
+
+.education-section {
+    grid-area: education;
+}
+
+.skills-section {
+    grid-area: skills;
+}
+
+.contact-section {
+    grid-area: contact;
+}
+
+.experience-section,
+.education-section,
+.skills-section,
+.contact-section {
+    margin-top: 0rem;
+}
+
+/* Experience Section */
+.experience-section h2,
+.education-section h2,
+.skills-section h2,
+.contact-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.company-info {
+    display: flex;
+    justify-content: space-between;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Education Section */
+.education-item {
+    margin-bottom: 1.5rem;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+}
+
+.education-info {
+    display: flex;
+    justify-content: space-between;
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-details {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Skills Section */
+.skill-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-name {
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+.skill-progress {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 0.375rem;
+    border-radius: 0.1875rem;
+    overflow: visible;
+}
+
+.progress-bar {
+    background-color: #ffffff;
+    height: 100%;
+    transition: width 0.2s ease;
+}
+
+.skill-slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0.375rem;
+    margin: 0;
+    transform: translateY(-50%);
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.skill-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 0.125rem solid #000000;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.skill-slider::-moz-range-thumb {
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 0.125rem solid #000000;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.skill-slider:focus {
+    outline: none;
+}
+
+.skill-slider:not([data-editable="true"]) {
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Hide slider thumb when not in edit mode */
+:not(.edit-mode) .skill-slider::-webkit-slider-thumb {
+    visibility: hidden;
+}
+
+:not(.edit-mode) .skill-slider::-moz-range-thumb {
+    visibility: hidden;
+}
+
+/* Contact Section */
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* Print Styles */
+@media print {
+    .resume-container {
+        width: 8.3in !important;
+        height: 11.7in !important;
+        margin: 0 !important;
+        background-color: #000000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .waves-bg {
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 1rem;
+        height: auto;
+        min-height: 11.7in;
+    }
+
+    .header-section {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .name-section {
+        margin-top: 1rem;
+    }
+
+    .first-name,
+    .last-name {
+        font-size: 3rem;
+    }
+
+    .about-section {
+        max-width: 100%;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "experience"
+            "education"
+            "skills"
+            "contact";
+        gap: 2rem;
+    }
+
+    .title-badge {
+        margin: 1rem auto 2rem;
+    }
+}

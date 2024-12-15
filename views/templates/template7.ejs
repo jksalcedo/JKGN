@@ -1,0 +1,144 @@
+<div class="resume-container">
+    <!-- Header section -->
+    <div class="header-section">
+        <div class="photo-frame">
+            <div class="flower-decoration"></div>
+            <div class="photo-container">
+                <img id="profile-image-upload" src="https://via.placeholder.com/200" alt="Profile Photo">
+                <div class="photo-label" data-editable="true">Digital Marketing</div>
+            </div>
+        </div>
+        <div class="header-info">
+            <h1 class="name">
+                <span data-editable="true">Kelly</span>
+                <span data-editable="true">Saldo</span>
+            </h1>
+            <div class="contact-details">
+                <div data-editable="true">+123-456-7890</div>
+                <div data-editable="true">hello@reallygreatsite.com</div>
+                <div data-editable="true">123 Anywhere St., Any City</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me section -->
+    <div class="section">
+        <h2 class="section-title">About Me</h2>
+        <p data-editable="true">I have been working in the digital marketing industry for more than nine years. I have
+            many experiences working individually and as a team member. My principle in working is exposure because the
+            core of digital marketing is all about how to increase the exposure of the promoted product.</p>
+    </div>
+
+    <!-- Experience section -->
+    <div class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+            <h3 class="job-title" data-editable="true">Digital Marketing Assistant</h3>
+            <div class="company-period">
+                <span data-editable="true">Liceria & Co.</span> |
+                <span data-editable="true">2013 – March 2022</span>
+            </div>
+            <ul>
+                <li data-editable="true">Built a robust data collection template that improves the production efficiency
+                    of Liceria & Co by 55%.</li>
+                <li data-editable="true">Led the team of marketers to analyze the market situation in more than five
+                    countries, which created the market map for the company to use on the online promotional project.
+                </li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3 class="job-title" data-editable="true">Digital Marketer Intern</h3>
+            <div class="company-period">
+                <span data-editable="true">Thynk Unlimited</span> |
+                <span data-editable="true">2012 – 2013</span>
+            </div>
+            <ul>
+                <li data-editable="true">Created the testing plan for Studio Shodwe's social media campaign, leading to
+                    the improvement of the ROI by 23% within two months after the template application.</li>
+                <li data-editable="true">Assisted the marketing team on the SEO project of the Rimberio Co. website,
+                    which has successfully increased the traffic by 15% or 90 new customers per month.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Skills section -->
+    <div class="section skill">
+        <h2 class="section-title">Skill</h2>
+        <div class="skills-list">
+            <div class="skill-item">
+                <div class="skill-name" data-editable="true">Market analytics</div>
+                <div class="skill-boxes">
+                    <div class="skill-box filled" data-level="1"></div>
+                    <div class="skill-box filled" data-level="2"></div>
+                    <div class="skill-box filled" data-level="3"></div>
+                    <div class="skill-box filled" data-level="4"></div>
+                    <div class="skill-box" data-level="5"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name" data-editable="true">Social media analytics and content creation</div>
+                <div class="skill-boxes">
+                    <div class="skill-box filled" data-level="1"></div>
+                    <div class="skill-box filled" data-level="2"></div>
+                    <div class="skill-box filled" data-level="3"></div>
+                    <div class="skill-box filled" data-level="4"></div>
+                    <div class="skill-box filled" data-level="5"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name" data-editable="true">Email marketing</div>
+                <div class="skill-boxes">
+                    <div class="skill-box filled" data-level="1"></div>
+                    <div class="skill-box filled" data-level="2"></div>
+                    <div class="skill-box filled" data-level="3"></div>
+                    <div class="skill-box" data-level="4"></div>
+                    <div class="skill-box" data-level="5"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name" data-editable="true">SEO</div>
+                <div class="skill-boxes">
+                    <div class="skill-box filled" data-level="1"></div>
+                    <div class="skill-box filled" data-level="2"></div>
+                    <div class="skill-box filled" data-level="3"></div>
+                    <div class="skill-box filled" data-level="4"></div>
+                    <div class="skill-box" data-level="5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education section -->
+    <div class="education-circle">
+        <h2 class="section-title">Education</h2>
+        <div class="education-content">
+            <h3 data-editable="true">Bachelor of Science in Marketing</h3>
+            <div class="school" data-editable="true">Polytechnic State University</div>
+            <div class="period" data-editable="true">May 2016 – August 2020</div>
+            <div class="gpa" data-editable="true">GPA: 1.90</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const skillBoxes = document.querySelectorAll('.skill-box');
+
+        skillBoxes.forEach(box => {
+            box.addEventListener('click', function () {
+                const level = parseInt(this.getAttribute('data-level'));
+                const parentBox = this.parentElement;
+                const allBoxes = parentBox.querySelectorAll('.skill-box');
+
+                allBoxes.forEach(b => {
+                    const boxLevel = parseInt(b.getAttribute('data-level'));
+                    if (boxLevel <= level) {
+                        b.classList.add('filled');
+                    } else {
+                        b.classList.remove('filled');
+                    }
+                });
+            });
+        });
+    });
+</script>

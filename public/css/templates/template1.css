@@ -1,0 +1,165 @@
+.resume-container {
+    max-width: 8.3in;
+    max-height: 11.7in;
+    width: 8.3in;
+    height: 11.7in;
+    margin: 0 auto;
+    padding: 0.4in;
+    background-image: url(../../images/bg1.png);
+    background-size: contain;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.header-template {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+}
+
+.profile-image {
+    width: 15.625rem;
+    height: 15.625rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.25rem solid #C4977C;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-text {
+    margin-left: 3.125rem;
+}
+
+.header-text h1 {
+    font-size: 2.25rem;
+    margin: 0;
+    color: #000;
+}
+
+.header-text h2 {
+    font-size: 1.125rem;
+    margin: 0.3125rem 0 0;
+    color: #666;
+}
+
+.main-content {
+    display: flex;
+    gap: 0.8rem;
+    top: -6.25rem;
+}
+
+.left-column {
+    flex: 1;
+    padding: 9.375rem 1.25rem 1.25rem 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.right-column {
+    flex: 2;
+}
+
+section {
+    margin-bottom: 1.25rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.625rem;
+    padding: 0.25rem;
+    background-color: #C4977C;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.contact-item i {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    background-color: #C4977C;
+}
+
+.expertise ul,
+.language ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expertise li,
+.language li {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+}
+
+.experience-item,
+.education-item {
+    margin-bottom: 0.9375rem;
+
+    & p {
+        margin: 0.3125rem auto;
+    }
+}
+
+.experience-item h4,
+.education-item h4 {
+    margin: 0;
+    color: #333;
+    font-size: 0.9375rem;
+}
+
+.location,
+.date {
+    color: #666;
+    margin: 0.1875rem 0;
+    font-size: 0.8125rem;
+}
+
+.description {
+    color: #555;
+    line-height: 1.4;
+    font-size: 0.8125rem;
+    margin: 0.3125rem 0;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.9375rem;
+}
+
+.skill-item {
+    text-align: center;
+    flex: 1;
+}
+
+.skill-item p {
+    font-size: 0.875rem;
+    margin: 0.3125rem 0;
+}
+
+.skill-circle {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 0.375rem solid #C4977C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem auto;
+    font-size: 1rem;
+    color: #C4977C;
+    font-weight: bold;
+}
